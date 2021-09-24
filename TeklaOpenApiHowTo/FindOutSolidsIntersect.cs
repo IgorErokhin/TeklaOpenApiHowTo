@@ -17,15 +17,16 @@ namespace TeklaOpenApiHowTo
                     return true;
                 }
 
-                EdgeEnumerator edges2 = solid2.GetEdgeEnumerator();
-                while (edges2.MoveNext())
+            };
+
+            EdgeEnumerator edges2 = solid2.GetEdgeEnumerator();
+            while (edges2.MoveNext())
+            {
+                Edge current2 = (Edge)edges2.Current;
+                if (solid1.Intersect(new LineSegment(current2.StartPoint, current2.EndPoint)).Count != 0)
                 {
-                    Edge current2 = (Edge)edges2.Current;
-                    if (solid1.Intersect(new LineSegment(current2.StartPoint, current2.EndPoint)).Count != 0)
-                    {
-                        return true;
-                    }
-                };
+                    return true;
+                }
             };
 
             return false;
