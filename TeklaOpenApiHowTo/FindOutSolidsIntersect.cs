@@ -28,7 +28,6 @@ namespace TeklaOpenApiHowTo
                 };
             };
 
-
             return false;
         }
     }
